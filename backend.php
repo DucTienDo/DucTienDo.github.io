@@ -1,16 +1,14 @@
 <?php
 
-$filename  = dirname(__FILE__).'/data.txt';
-
+$filename  = dirname(__FILE__) . '/data.txt';
+$chat_log = dirname(__FILE__) . '/chatlog.txt';
 // store new message in the file
 $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
-if(!empty($_POST['msg']))
-{
-  $msg = 
-  file_put_contents($filename,$msg,FILE_APPEND);
+if ($msg != '') {
+  file_put_contents($filename, $msg);
+  file_put_contents($chat_log, $msg.PHP_EOL,FILE_APPEND);
   die();
 }
-
 
 // infinite loop until the data file is not modified
 $lastmodif    = isset($_GET['timestamp']) ? $_GET['timestamp'] : 0;
@@ -28,5 +26,4 @@ $response['msg']       = file_get_contents($filename);
 $response['timestamp'] = $currentmodif;
 echo json_encode($response);
 flush();
-
 ?>
