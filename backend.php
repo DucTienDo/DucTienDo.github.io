@@ -2,11 +2,13 @@
 $filename  = dirname(__FILE__) . '/data.txt';
 $chat_log = dirname(__FILE__) . '/chatlog.txt';
 // store new message in the file
+
 $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
 if ($msg != '') {
   file_put_contents($filename, $msg);
+  // echo json_encode(file_get_contents($filename));
   file_put_contents($chat_log, $msg.PHP_EOL,FILE_APPEND);
-  // die();
+  die();
 }
 
 // infinite loop until the data file is not modified

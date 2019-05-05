@@ -1,3 +1,4 @@
+
 let url = 'backend.php';
 let timestamp = 0;
 let showMsgArea = document.getElementById('content');

@@ -19,12 +19,10 @@
         ?>
     </div>
 
-    <p>
         <form action="" method="get">
             <input type="text" name="word" id="word" value="" />
             <input type="submit" name="submit" value="Send" />
         </form>
-    </p>
     <script type="text/javascript" src="index.js"></script>
 </body>
 
